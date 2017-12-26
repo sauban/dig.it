@@ -1,0 +1,30 @@
+<div class="container-fluid product-search search">
+
+	<form ng-submit="vm.onSearch(vm.product.search)" name="vm.productForm" role="form" id="product" novalidate>
+		<input type="text" ng-model="vm.product.search" name="search" id="search" autocomplete="off" placeholder="Product Name" required>
+		<button type="submit" ng-disabled="vm.productForm.$invalid">
+			search
+		</button>
+	</form>
+
+
+	<!-- header -->
+	<div class="row table-header">
+		<div class="col-md-3">_id</div>
+		<div class="col-md-3">product name</div>
+		<div class="col-md-3">Price</div>
+		<div class="col-md-3">action</div>
+	</div>
+
+	<!-- table body -->
+	<div class="table">
+		<div class="search-item row" ng-repeat="product in vm.products track by product._id">
+
+			<a ui-sref="displayProduct({ productId: product._id })" title="display product">
+				<div class="col-md-3">{{ product._id }}</div>
+				<div class="col-md-3">{{ product.name }}</div>
+				<div class="col-md-3">{{ product.price | currency:'N '}}</div>
+			</a>
+		</div>
+	</div>
+</div>

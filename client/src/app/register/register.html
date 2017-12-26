@@ -1,0 +1,76 @@
+<div class="container-fluid register">
+
+	<!-- user form -->
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4">
+
+		<form
+			ng-submit="vm.submitUserForm(vm.user)"
+			name="registerForm"
+			role="form"
+			id="user"
+			novalidate
+		>
+
+					<input
+						type="text"
+						ng-model="vm.user.username"
+						name="username"
+						id="username"
+						autocomplete="off"
+						placeholder="Username"
+						required
+					>
+
+					<input
+						type="password"
+						ng-model="vm.user.password"
+						name="password"
+						id="password"
+						autocomplete="off"
+						placeholder="Password"
+						required
+					>
+
+
+					<input
+						type="text"
+						ng-model="vm.user.firstName"
+						ng-disabled="vm.actionType == 'loadUser'"
+						name="firstName"
+						id="firstName"
+						autocomplete="off"
+						placeholder="First name"
+					>
+
+					<input
+						type="text"
+						ng-model="vm.user.surname"
+						ng-disabled="vm.actionType == 'loadUser'"
+						name="surname"
+						id="surname"
+						autocomplete="off"
+						placeholder="Surname"
+					>
+
+					<input
+						type="email"
+						ng-model="vm.user.email"
+						ng-disabled="vm.actionType == 'loadUser'"
+						name="email"
+						id="email"
+						autocomplete="off"
+						placeholder="Email"
+					>
+
+					<div>Already have an account? Please <a ui-sref="login">Login</a></div>
+
+					<button
+						type="submit"
+					>
+						Sign Up
+					</button>
+		</form>
+	</div>
+</div>
+</div>

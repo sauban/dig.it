@@ -1,0 +1,30 @@
+<div class="container-fluid product-list list">
+
+	<!-- header -->
+	<div class="row table-header">
+		<div class="col-md-3">_id</div>
+		<div class="col-md-3">product name</div>
+		<div class="col-md-3">Price</div>
+		<div class="col-md-3">action</div>
+	</div>
+
+	<!-- table body -->
+	<div class="table">
+		<div
+			class="list-item row"
+			ng-repeat="product in vm.products track by product._id">
+
+			<a ui-sref="displayProduct({ productId: product._id })" title="display product">
+				<div class="col-md-3">{{ product._id }}</div>
+				<div class="col-md-3">{{ product.name }}</div>
+				<div class="col-md-3">{{ product.price | currency:'N '}}</div>
+			</a>
+
+			<div class="col-md-3">
+				<a ui-sref="editProduct({ productId: product._id })" class="icon" title="edit product">
+				    Edit product
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

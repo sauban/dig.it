@@ -1,0 +1,90 @@
+<div class="container-fluid product form">
+
+	<div class="row" ng-if="vm.actionType == 'loadProduct'">
+		<div class="col-md-12">
+			<a ui-sref="editProduct({ productId: vm.product._id })" title="edit product">
+			    Edit product
+			</a>
+		</div>
+	</div>
+
+	<!-- product form -->
+	<div>
+
+		<form
+			ng-submit="vm.submitProductForm(vm.product, vm.product._id)"
+			name="vm.productForm"
+			role="form"
+			id="product"
+			novalidate
+		>
+
+			<div ng-if="vm.actionType != 'createProduct'" class="row">
+				<label for="product-id" class="col-md-5">ID</label>
+				<div class="col-md-5">
+					<input
+						type="text"
+						ng-model="vm.product._id"
+						ng-disabled="'always'"
+						name="product-id"
+						id="product-id"
+						autocomplete="off"
+						placeholder="Product ID"
+					>
+				</div>
+			</div>
+
+			<div class="row">
+				<label for="productname" class="col-md-5">Name</label>
+				<div class="col-md-5">
+					<input
+						type="text"
+						ng-model="vm.product.name"
+						ng-disabled="vm.actionType != 'createProduct'"
+						name="productname"
+						id="productname"
+						autocomplete="off"
+						placeholder="Product name"
+						required
+					>
+				</div>
+			</div>
+
+			<div class="row" ng-if="vm.actionType == 'createProduct'">
+				<label for="price" class="col-md-5">Price</label>
+				<div class="col-md-5">
+					<input
+						type="price"
+						ng-model="vm.product.price"
+						ng-disabled="vm.actionType != 'createProduct'"
+						name="price"
+						id="price"
+						autocomplete="off"
+						placeholder="Price"
+						required
+					>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5 col-md-offset-5">
+					<button
+						type="submit"
+						ng-disabled="vm.productForm.$invalid"
+						ng-if="vm.actionType == 'createProduct'"
+					>
+						Create
+					</button>
+
+					<button
+						type="submit"
+						ng-disabled="vm.productForm.$invalid"
+						ng-if="vm.actionType == 'editProduct'"
+					>
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

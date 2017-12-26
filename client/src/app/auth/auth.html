@@ -1,0 +1,48 @@
+<div class="container-fluid auth">
+
+	<!-- login -->
+	<div class="row">
+		<div class="col-xs-offset-4 col-xs-4">
+			<form
+				ng-submit="vm.login(vm.username, vm.password)"
+				name="login"
+				id="login"
+				role="form"
+				novalidate
+			>
+				<input
+					type="text"
+					ng-model="vm.username"
+					name="username"
+					id="username"
+					autocomplete="off"
+					placeholder="Username"
+				>
+
+				<input
+					type="password"
+					ng-model="vm.password"
+					name="password"
+					id="password"
+					autocomplete="off"
+					placeholder="Password"
+				>
+
+				<div>Don't have an account? Please <a ui-sref="register">register</a></div>
+
+				<button
+					type="submit"
+				>
+					Log in
+				</button>
+
+			</form>
+		</div>
+	</div>
+
+	<!-- logout -->
+	<div class="row" ng-if="vm.user">
+		<button ng-click="vm.logout()">Log out</button>
+	</div>
+</div>
+

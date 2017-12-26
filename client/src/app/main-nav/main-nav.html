@@ -1,0 +1,45 @@
+<!-- Main navigation -->
+<div class="container-fluid main-nav">
+
+	<header>
+
+				<!-- login/logout -->
+				<!-- <div class="row">
+			<div class="col-xs-12">
+				<div class="auth">
+					<auth></auth>
+				</div>
+			</div>
+		</div> -->
+
+				<!-- navigation -->
+				<div class="row" ng-if="!vm.user">
+					<ul>
+						<li>
+							<a ui-sref="login" class="create-user-link" ui-sref-opts="{reload: true, notify: true}">Sign In</a>
+						</li>
+						<li>
+							<a ui-sref="register" class="change-password-link">Sign Up</a>
+						</li>
+					</ul>
+				</div>
+
+		<!-- navigation -->
+		<div class="row" ng-if="vm.user">
+			<ul>
+				<li>
+					<a ui-sref="createProduct" class="create-user-link" ui-sref-opts="{reload: true, notify: true}">Create product</a>
+				</li>
+				<li>
+					<a ui-sref="searchProduct" class="change-password-link">Search Product</a>
+				</li>
+				<li>
+					<a ui-sref="myProducts" class="users-link" ui-sref-opts="{reload: true, notify: true}">My Products</a>
+				</li>
+				<li >
+					<a ng-click="vm.logout()" class="change-password-link">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+</div>
